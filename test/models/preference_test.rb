@@ -13,4 +13,8 @@ class PreferenceTest < ActiveSupport::TestCase
     assert_respond_to @preference, :suscribers
   end
 
+  test "should return translated key name" do
+    @preference.key_name = "womens_fashion"
+    assert_equal "Women's Fashion", @preference.translated_key_name
+  end
 end
