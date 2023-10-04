@@ -1,1 +1,5 @@
 es:
+  subscribers:
+    new:
+      preferences_title: "Preferencias"
+      

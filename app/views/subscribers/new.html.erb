@@ -1,0 +1,17 @@
+<h1>Micolet</h1>
+<h3><%= t(".welcome") %></h3>
+<p><%= t(".description") %></p>
+
+<%= form_with model: @subscriber do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, required: true %>
+  <%= error_message_for(@subscriber, :email) %>
+  <br>
+
+  <%= f.label :preferences_list, t(".preferences_title") %><br>
+  <%= f.collection_check_boxes :preference_ids, @preferences_list, :id, :translated_key_name %><br>
+  <%= error_message_for(@subscriber, :preferences) %><br>
+
+  <%= f.submit t(".subscribe") %>
+<% end %>
