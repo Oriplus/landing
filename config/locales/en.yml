@@ -7,6 +7,7 @@ en:
       subscribe: 'Subscribe me!'
     create:
       created: "Thank you for subscribing!"
+      invalid_email: "invalid email"
   preferences:
     womens_fashion: "Women's Fashion"
     mens_fashion: "Men's Fashion"
@@ -18,4 +19,3 @@ en:
           attributes:
             preferences:
               must_select_at_least_one: "must select at least one"
-  
