@@ -10,7 +10,7 @@ class PreferenceTest < ActiveSupport::TestCase
   end
 
   test "should have many suscribers through subscribers_preferences" do
-    assert_respond_to @preference, :suscribers
+    assert_respond_to @preference, :subscribers
   end
 
   test "should return translated key name" do
