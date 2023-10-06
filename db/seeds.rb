@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+['mens_fashion', 'womens_fashion', 'childrens_fashion'].each do |key_name|
+  Preference.find_or_create_by(key_name: key_name)
+end
