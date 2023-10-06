@@ -1,8 +1,8 @@
 en:
   subscribers:
     new:
-      welcome: 'Welcome! Soon will launch our site in this country'
-      description: 'Suscribe to receive our newsletter'
+      welcome: 'Welcome! Soon will launch our site in this country.'
+      description: 'Subscribe to receive our newsletter.'
       preferences_title: 'Preferences'
       subscribe: 'Subscribe me!'
     create:

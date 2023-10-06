@@ -1,17 +1,30 @@
-<h1>Micolet</h1>
-<h3><%= t(".welcome") %></h3>
-<p><%= t(".description") %></p>
+<section class="d-flex flex-column align-content-around align-items-center">
+  <img class="logo" alt="micolet logo" src="https://d30o7qbghf97ws.cloudfront.net/micolet-logo.svg">
+  <p class="fs-5"><%= t(".welcome") %></p>
+  <p class="fs-6"><%= t(".description") %></p>
 
-<%= form_with model: @subscriber do |f| %>
+  <%= form_with(model: @subscriber, class: 'needs-validation', novalidate: true) do |f| %>
+    <div class="form-group mb-4">
+      <%= f.label :email, class: 'form-label' %>
+      <%= f.email_field :email, required: true, class: 'form-control' %>
+      <%= error_message_for(@subscriber, :email) %>
+    </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, required: true %>
-  <%= error_message_for(@subscriber, :email) %>
-  <br>
+    <div class="form-group mb-4">
+      <%= f.label :preferences_list, t(".preferences_title"), class: 'form-label' %>
+      <div>
+        <%= f.collection_check_boxes :preference_ids, @preferences_list, :id, :translated_key_name do |b| %>
+          <div class="form-check">
+            <%= b.check_box class: "form-check-input" %>
+            <%= b.label class: "form-check-label" %>
+          </div>
+        <% end %>
+      </div>
+      <%= error_message_for(@subscriber, :preferences) %>
+    </div>
 
-  <%= f.label :preferences_list, t(".preferences_title") %><br>
-  <%= f.collection_check_boxes :preference_ids, @preferences_list, :id, :translated_key_name %><br>
-  <%= error_message_for(@subscriber, :preferences) %><br>
-
-  <%= f.submit t(".subscribe") %>
-<% end %>
+    <div class="form-group d-flex justify-content-center">
+      <%= f.submit t(".subscribe"), class: 'btn btn-success' %>
+    </div>
+  <% end %>
+</section>
