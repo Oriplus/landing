@@ -9,6 +9,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(subscriber_params)
 
     if @subscriber.valid? && email_verified? && @subscriber.save
+      SubscriberMailer.subscriber_created(@subscriber).deliver_now
       redirect_to root_path, notice: t(".created")
     else
       render :new, status: :unprocessable_entity

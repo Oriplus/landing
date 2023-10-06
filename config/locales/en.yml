@@ -6,8 +6,8 @@ en:
       preferences_title: 'Preferences'
       subscribe: 'Subscribe me!'
     create:
-      created: "Thank you for subscribing!"
-      invalid_email: "invalid email"
+      created: 'Thank you for subscribing!'
+      invalid_email: 'invalid email'
   preferences:
     womens_fashion: "Women's Fashion"
     mens_fashion: "Men's Fashion"
@@ -18,4 +18,9 @@ en:
         subscriber:
           attributes:
             preferences:
-              must_select_at_least_one: "must select at least one"
+              must_select_at_least_one: 'must select at least one'
+  subscriber_mailer:
+    subscriber_created:
+      email_subject: 'Welcome to our newsletter'
+      email_title: 'Hello!'
+      email_body: 'Thank you for subscribing to our newsletter. Stay tuned for updates :)!!'
