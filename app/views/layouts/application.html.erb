@@ -10,7 +10,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="container-md d-flex justify-content-center align-items-center vh-100">
-    <%= yield %>
+  <body>
+    <%= render 'shared/flash'%>
+    <section class="container-md d-flex flex-column justify-content-center align-items-center vh-100">
+      <%= yield %>
+    </section>
   </body>
 </html>
