@@ -1,15 +1,23 @@
-FROM ruby:3.1.3
-
-RUN apt-get update -qq && apt-get install -y nodejs sqlite3 libsqlite3-dev
+FROM ruby:3.1.3-alpine
 
 WORKDIR /landing
 
-COPY Gemfile Gemfile.lock ./
+RUN apk add --update \
+    build-base \
+    sqlite-dev \
+    git \
+    tzdata \
+    yarn \
+    && rm -rf /var/cache/apk/*
 
-RUN gem install bundler && bundle install
+COPY Gemfile* ./
+
+RUN bundle install
 
 COPY . .
 
-EXPOSE 3000
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+EXPOSE 3000
