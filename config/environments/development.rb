@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require_relative "../initializers/env_credentials"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -25,7 +26,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.to_i}"
+      "Cache-Control" => "public, max-age=#{2.days.to_i}",
     }
   else
     config.action_controller.perform_caching = false
@@ -70,11 +71,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   ActionMailer::Base.smtp_settings = {
-    address: 'smtp.gmail.com',
-    domain: 'mail.google.com',
+    address: "smtp.gmail.com",
+    domain: "mail.google.com",
     port: 587,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"],
+    user_name: EnvCredentials::GMAIL_USERNAME,
+    password: EnvCredentials::GMAIL_PASSWORD,
     authentication: "plain",
     enable_starttls_auto: true,
   }
