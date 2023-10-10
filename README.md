@@ -1,5 +1,5 @@
 
-# Micolet NewLetter Landing
+# Micolet NewsLetter Landing
 
 Landing para registrar suscriptores a una newsletter, el cliente ingresa su correo y preferencias y recibe un email de notificación.
 
