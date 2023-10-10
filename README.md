@@ -5,7 +5,7 @@ Landing para registrar suscriptores a una newsletter, el cliente ingresa su corr
 
 Utiliza Abstract Api para validar el email y el smtp de gmail para el envio del email de notificación.
 
-Estan habilitados los lenguajes en(deafult), es y fr accediendo por url. Ejemplo localhost:3000/es
+Estan habilitados los lenguajes en(default), es y fr accediendo por url. Ejemplo localhost:3000/es
 
 ## Como ejecutar el proyecto
 
